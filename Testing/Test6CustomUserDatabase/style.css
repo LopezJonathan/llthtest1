@@ -1,0 +1,42 @@
+.hide {
+    display: none;
+}
+
+.LoginContainer {
+    margin-top: 0px;
+}
+
+.mdl-textfield__input {
+    background-color: white;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 2px;
+}
+
+.mdl-textfield__label {
+    margin-bottom: 2px;
+}
+
+.mdl-textfield {
+    margin-right: 5px;
+}
+
+.mdl-layout__header {
+    background-color: rgba(25, 65, 104, 1);
+}
+
+.titleImage {
+    height: 55px;
+}
+
+.title {
+    margin-left: 5px;
+}
+
+.mdl-button {
+    background-color: rgba(252, 181, 104, 1);
+    color: whitesmoke;
+    opacity: 1;
+    margin-right: 2px;
+}

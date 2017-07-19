@@ -2,6 +2,10 @@
     display: none;
 }
 
+.mdl-layout__header-row {
+    padding: 0 72px 0 15px;
+}
+
 .LoginContainer {
     margin-top: 0px;
 }
@@ -28,6 +32,7 @@
 
 .titleImage {
     height: 55px;
+    margin-left: 10px;
 }
 
 .title {

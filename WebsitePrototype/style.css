@@ -7,12 +7,13 @@ body,
 #map {
     padding: 0;
     margin: 0;
+    margin-top: 15px;
     height: 500px;
 }
 
 #LocateButton {
     position: absolute;
-    top: 160px;
+    top: 155px;
     left: 20px;
     z-index: 50;
 }

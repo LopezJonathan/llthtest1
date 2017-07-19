@@ -27,8 +27,8 @@
 
     <p id="LoginMessage" class="">To use demo log in or create a new account. To create a new account type in your email and password and hit the sign up button.</p>
 
-    <div id="map" class="map">
-        <div id="LocateButton"></div>
+    <div id="map" class="map hide">
+        <div id="LocateButton" class="hide"></div>
     </div>
     <script src="https://js.arcgis.com/3.21/"></script>
     <script>
@@ -45,7 +45,7 @@
             map = new Map("map", {
                 center: [-56.049, 38.485],
                 zoom: 3,
-                basemap: "streets"
+                basemap: "satellite"
             });
 
             geoLocate = new LocateButton({

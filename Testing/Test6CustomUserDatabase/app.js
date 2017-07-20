@@ -52,7 +52,7 @@ const txtLogin = document.getElementById('btnLogin');
 const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 
-const map = document.getElementById('map');
+const map2 = document.getElementById('map2');
 const LocateButton = document.getElementById('LocateButton');
 const LoginMessage = document.getElementById('LoginMessage');
 
@@ -89,14 +89,18 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
         btnLogout.classList.remove('hide');
-        map.classList.remove('hide');
+        btnLogin.classList.add('hide');
+        btnSignUp.classList.add('hide');
+        map2.classList.remove('hide');
         LocateButton.classList.remove('hide');
         LoginMessage.classList.add('hide');
     } else {
         console.log('not Logged in');
         btnLogout.classList.add('hide');
-        map.classList.add('hide');
+        btnLogin.classList.remove('hide');
+        btnSignUp.classList.remove('hide');
+        map2.classList.add('hide');
         LocateButton.classList.add('hide');
         LoginMessage.classList.remove('hide');
     }
-});   
+});

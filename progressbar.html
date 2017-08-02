@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
 <meta charset="utf-8">
 <title>Firebase Web Quickstart</title>
@@ -7,14 +8,35 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+<style>
+	progress[value] {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 126px;
+		height: 180px;
+	}
+	 progress[value]::-webkit-progress-bar {
+		 background-color: #eee;
+		 -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+		 border-radius: 50%  50%  50%  50%  / 60%   60%   40%  40%;
+		 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+/*		 overflow: hidden;*/
+	}
+	 progress[value]::-webkit-progress-value {
+		 background-color: dodgerblue;
+		 transform-origin: 0 70%;
+		 transform: rotate(-90deg);
+	}
+</style>
 </head>
+
 <body>
-<progress id="progressBar" value="" max="50" style="width: 200px;"></progress>
-<span id="status"></span>
-<span id="test"></span>
+
+<progress id="progressBar" max="50" value="50"></progress>
+<span id="status"></span> <span id="test"></span>
 <h1 id="finalMessage"></h1>
 
-<script type="text/javascript" language="javascript">	
+<script type="text/javascript" language="javascript">	v
 	$(document).ready(function(){
 		progressBarSim();
 		$.getJSON("test-egg-database-export.json", function(data){

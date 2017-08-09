@@ -51,10 +51,7 @@ const txtPassword = document.getElementById('txtPassword');
 const txtLogin = document.getElementById('btnLogin');
 const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
-
-const map2 = document.getElementById('map2');
-const LocateButton = document.getElementById('LocateButton');
-const LoginMessage = document.getElementById('LoginMessage');
+const LoginMessage = document.getElementById('LoginMessage')
 
 //Add Login Event
 btnLogin.addEventListener('click', e => {
@@ -88,56 +85,15 @@ btnLogout.addEventListener('click', e => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
+        LoginMessage.classList.add('hide');
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
-        map2.classList.remove('hide');
-        LocateButton.classList.remove('hide');
-        LoginMessage.classList.add('hide');
     } else {
         console.log('not Logged in');
+        LoginMessage.classList.remove('hide');
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
-        map2.classList.add('hide');
-        LocateButton.classList.add('hide');
-        LoginMessage.classList.remove('hide');
     }
-});
-
-/*
-var user = firebase.auth().currentUser;
-const name2 = document.getElementById('name');
-const email2 = document.getElementById('email');
-const uid2 = document.getElementById('uid');
-const dbRefObject = firebase.database().ref();
-
-var user = firebase.auth().currentUser;
-
-if (user != null) { 
-    name = user.displayName; 
-    email = user.email;
-    uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-               // this value to authenticate with your backend server, if
-               // you have one. Use User.getToken() instead.
-}
-*/
-if (user != null) { 
-    user.providerData.forEach(function(profile) {  
-        console.log("Sign-in provider: " + profile.providerId);  
-        console.log("  Provider-specific UID: " + profile.uid);  
-        console.log("  Name: " + profile.displayName);  
-        console.log("  Email: " + profile.email);  
-    });
-}
-
-var name = document.getElementById('');
-var email = document.getElementById('');
-
-btnSend.addEventListener('click', e => {
-    var FirebaseRef = firebase.database().Ref();
-
-    var nameText = name.value();
-
-    FirebaseRef.push().set(nameText);
 });

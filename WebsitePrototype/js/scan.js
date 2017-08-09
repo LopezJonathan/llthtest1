@@ -1,6 +1,4 @@
-src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js";
 // Initialize Firebase
- 
 var config = {
     apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",
     authDomain: "test-project-4d8c5.firebaseapp.com",
@@ -16,37 +14,8 @@ const preObject = document.getElementById('object');
 const ulList = document.getElementById('list');
 
 // Create reference
-const dbRefObject = firebase.database().ref();
-const dbRefList = dbRefObject.child('stuff');
-
-
-////
-////Early work I did to pull specific data from the objects in the database.
-////
-//const dbLat = dbRefObject.child('eggs').child('egg' + i).child('latitude');
-//const dbLong = dbRefObject.child('eggs').child('egg' + i).child('longitude');
-
-//for (var i = 1; i < 11; i++) {
-// const dbLat = dbRefObject.child('eggs').child('egg' + i).child('latitude');
-//dbLat.on('value', snap => {
-//console.log("Latitude " + JSON.stringify(snap.val(), null, 3) + "  latArray Length: " + latArray.length);
-// });
-
-//const dbLong = dbRefObject.child('eggs').child('egg' + i).child('longitude');
-// dbLong.on('value', snap => {
-//console.log("Longitude " + JSON.stringify(snap.val(), null, 3) + "  lonArray Length: " + lonArray.length);
-// });
-//}
-
-//Bellow is a program to log out snap values from the firebase database 
-//only if it is within a certian range of latitudes and longitudes.
-
-var nRef = firebase.database().ref();
-var eggs = nRef.child('eggs');
-
-//eggs.orderByChild('latitude').startAt(47.8182).endAt(47.8184).on('child_added', function(snap) {
-//if (snap.val().longitude >= -122.2776 && snap.val().longitude <= -122.2775) { console.log(snap.val()) }
-//});
+const dbRefObject = firebase.database().ref().child('object');
+const dbRefList = dbRefObject.child('hobbies').child('egg');
 
 // Sync Object Changes
 dbRefObject.on('value', snap => {
@@ -84,7 +53,8 @@ const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 
 const LoginMessage = document.getElementById('LoginMessage');
-const btnScan = document.getElementById('btnScan')
+const map = document.getElementById('map');
+const btnScan = document.getElementById('btnScan');
 
 //Add Login Event
 btnLogin.addEventListener('click', e => {
@@ -114,40 +84,29 @@ btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
 
-const name = document.getElementById('name');
-const email2 = document.getElementById('email2');
-const btnSend = document.getElementById('btnSend');
-
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
-        console.log(firebaseUser.uid);
-        btnSend.addEventListener('click', e => {
-            const dbUserRef = firebase.database().ref();
-            const UserName = name.value;
-            const Email = email.value;
-            const Egg5Bool = false;
-            const packet = { UserName, Email, timeStamp: new Date().toString(), Lat: 'Lat', Long: 'Long', EggBools: { Egg5Bool } };
-            const nkey = firebaseUser.uid;
-            dbUserRef.child('users').child(nkey.toString()).set(packet);
-            console.log("  key: " + nkey);  
-        });
         LoginMessage.classList.add('hide');
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
+        btnScan.classList.remove('hide');
     } else {
         console.log('not Logged in');
         LoginMessage.classList.remove('hide');
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
+        btnScan.classList.add('hide');
     }
 });
 
+
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
+
         function errorCallback(error) {
             alert('ERROR(' + error.code + '): ' + error.message);
         };
@@ -164,32 +123,24 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     var latitude = position.coords.latitude;
                     var longitude = position.coords.longitude;
                     var found = longitude + "," + latitude;
-                    //document.getElementById('map').src = 'https://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
+                    const map = document.getElementById('map');
+                    map.src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
 
-                    eggs.orderByChild('latitude').startAt(47.8182).endAt(47.8184).on('child_added', function(snap) {
-                        if (snap.val().longitude >= -122.2776 && snap.val().longitude <= -122.2775) {
-                            console.log('Egg' + snap.val().egg + 'Bool')
-                            console.log(latitude, longitude)
-                            const dbUserRef = firebase.database().ref();
-                            dbUserRef.child('users').child(firebaseUser.uid).child('EggBools').child('Egg' + snap.val().egg + 'Bool').set('true');
-                        }
-                    });
+                    var radlat1 = Math.PI * latitude / 180;
+                    var radlat2 = Math.PI * (latitude + .0002) / 180;
+                    var theta = longitude - (longitude + .0002);
+                    var radtheta = Math.PI * theta / 180;
+                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    dist = Math.acos(dist);
+                    dist = dist * 180 / Math.PI;
+                    dist = dist * 60 * 1.1515;
+                    distFinal = dist * 5280;
 
-                    //var radlat1 = Math.PI * latitude / 180;
-                    //var radlat2 = Math.PI * (latitude + .0002) / 180;
-                    //var theta = longitude - (longitude + .0002);
-                    //var radtheta = Math.PI * theta / 180;
-                    //var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-                    //dist = Math.acos(dist);
-                    //dist = dist * 180 / Math.PI;
-                    //dist = dist * 60 * 1.1515;
-                    //distFinal = dist * 5280;
-
-                    //console.log("   Distance between two Geolocations:  " + distFinal);
+                    console.log("   Distance between two Geolocations:  " + distFinal);
                 }
 
                 function error() {
-                    // document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
+                    document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
                 }
 
                 navigator.geolocation.getCurrentPosition(success, error);
@@ -250,24 +201,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                         persistWhileVisible: true
                     });
             });
-    }
-});
+    } else {
 
-
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        //More stuff
-        //showing the egg
-        const EC5 = document.getElementById('EC5')
-        const dbUserRef = firebase.database().ref();
-        const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('EggBools');
-        dbEggRef.child('Egg5Bool').on('value', snap => {
-            if (snap.val() == "true") {
-                EC5.classList.remove('hide');
-            } else {
-                EC5.classList.add('hide');
-            }
-            console.log(snap.val())
-        });
     }
 });

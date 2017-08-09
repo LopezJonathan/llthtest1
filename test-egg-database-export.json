@@ -1,0 +1,26 @@
+{
+  "Eggs" : {
+    "Egg1" : {
+      "EggArtist" : "Egg Artist",
+      "EggDesc" : "Description of Egg",
+      "EggID" : 0,
+      "EggLat" : 11,
+      "EggLong" : 11.2
+    },
+    "Egg2" : {
+      "EggArtist" : "Egg Artist2",
+      "EggDesc" : "Desc",
+      "EggID" : 1,
+      "EggLat" : 47,
+      "EggLong" : 60
+    },
+    "TotEggCount" : 50
+  },
+  "UserInfo" : {
+    "Name" : "User",
+    "TotUserEggCollected" : 0,
+    "UserID" : "User ID",
+    "UserLat" : 12,
+    "UserLong" : 11.5
+  }
+}

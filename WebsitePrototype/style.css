@@ -2,6 +2,26 @@
     display: none;
 }
 
+#collection {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.eggItem {
+    flex: 10 0;
+    margin: 0 2%
+}
+
+.eggItem h1 {
+    font-size: 32px;
+}
+
+.eggImage {
+    height: 178px;
+    width: 100px;
+}
+
 #btnFind {
     color: black;
     position: absolute;

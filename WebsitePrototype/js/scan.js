@@ -56,6 +56,9 @@ const LoginMessage = document.getElementById('LoginMessage');
 const map = document.getElementById('map');
 const btnScan = document.getElementById('btnScan');
 
+const nRef = firebase.database().ref();
+const eggs = nRef.child('eggs');
+
 //Add Login Event
 btnLogin.addEventListener('click', e => {
     //Get email and pass
@@ -126,17 +129,26 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     const map = document.getElementById('map');
                     map.src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
 
-                    var radlat1 = Math.PI * latitude / 180;
-                    var radlat2 = Math.PI * (latitude + .0002) / 180;
-                    var theta = longitude - (longitude + .0002);
-                    var radtheta = Math.PI * theta / 180;
-                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-                    dist = Math.acos(dist);
-                    dist = dist * 180 / Math.PI;
-                    dist = dist * 60 * 1.1515;
-                    distFinal = dist * 5280;
+                    eggs.orderByChild('latitude').startAt(latitude - 0.0001).endAt(latitude + 0.0001).on('child_added', function(snap) {
+                        if (snap.val().longitude >= (longitude - 0.0001) && snap.val().longitude <= (longitude + 0.0001)) {
+                            console.log('Egg' + snap.val().egg + 'Bool')
+                            console.log(latitude, longitude)
+                            const dbUserRef = firebase.database().ref();
+                            dbUserRef.child('users').child(firebaseUser.uid).child('eui').child('e' + snap.val().egg + 'ui').child('bool').set('true');
+                        }
+                    });
 
-                    console.log("   Distance between two Geolocations:  " + distFinal);
+                    //var radlat1 = Math.PI * latitude / 180;
+                    //var radlat2 = Math.PI * (latitude + .0002) / 180;
+                    //var theta = longitude - (longitude + .0002);
+                    //var radtheta = Math.PI * theta / 180;
+                    //var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    //dist = Math.acos(dist);
+                    //dist = dist * 180 / Math.PI;
+                    //dist = dist * 60 * 1.1515;
+                    //distFinal = dist * 5280;
+
+                    //console.log("   Distance between two Geolocations:  " + distFinal);
                 }
 
                 function error() {
@@ -201,7 +213,5 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                         persistWhileVisible: true
                     });
             });
-    } else {
-
     }
 });

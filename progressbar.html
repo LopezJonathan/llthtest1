@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
 <meta charset="utf-8">
 <title>Firebase Web Quickstart</title>
@@ -14,28 +13,38 @@
 		appearance: none;
 		width: 126px;
 		height: 180px;
+		padding: 5px;
 	}
 	 progress[value]::-webkit-progress-bar {
-		 background-color: #eee;
-		 -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
-		 border-radius: 50%  50%  50%  50%  / 60%   60%   40%  40%;
-		 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-/*		 overflow: hidden;*/
+	 background-color: #eee;
+	 -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+	 border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+	 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+	 overflow: hidden;
 	}
 	 progress[value]::-webkit-progress-value {
-		 background-color: dodgerblue;
-		 transform-origin: 0 70%;
-		 transform: rotate(-90deg);
+	 background-color: dodgerblue;
+		 transform-origin: 50% 50%;
+	}
+	
+	.progress{
+		position: relative;
+	}
+	
+	.progress p {
+		position: absolute;
+		text-align: center
 	}
 </style>
 </head>
 
 <body>
-
-<progress id="progressBar" max="50" value="50"></progress>
+<div class="progress">
+  <progress id="progressBar" max="50" value="15" data-label="Egg Collection Progress:"></progress>
+  <p>Egg Collection Progress: <span id="percentage"></span></p>
+</div>
 <span id="status"></span> <span id="test"></span>
 <h1 id="finalMessage"></h1>
-
 <script type="text/javascript" language="javascript">	v
 	$(document).ready(function(){
 		progressBarSim();

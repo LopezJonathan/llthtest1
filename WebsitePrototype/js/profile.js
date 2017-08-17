@@ -193,3 +193,17 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 
 });
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        const dbUserRef = firebase.database().ref();
+        const userNameTxt = document.getElementById('userNameTxt');
+        const dbUserName = dbUserRef.child('users').child(firebaseUser.uid).child('UserName');
+
+        dbUserName.on('value', snap => {
+
+            userNameTxt.innerText = snap.val();
+            //console.log('thing ' + snap.val());
+        })
+    }
+});

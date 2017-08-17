@@ -148,10 +148,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
         var recentCount = 0;
         dbEggRef.orderByChild('timeStamp').limitToLast(5).on('child_added', function(snap) {
-
             if (snap.val().bool == "true") {
                 const section = document.createElement('section');
-                section.classList.add('eggItem');
+                section.classList.add('recentEggItem');
                 recentEgg.appendChild(section);
 
                 const h1 = document.createElement('h1');
@@ -164,8 +163,17 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 img.classList.add('eggImage');
                 img.title = 'egg' + snap.val().eggNum;
                 img.id = 'egg' + snap.val().eggNum;
-                img.src = 'images/TestEgg' + snap.val().eggNum + '.png';
-                //img.href = 'egg' + 101 + '.html'
+
+                ////until more images are added this is here so that if any eggs that are listed as greater or less than 101 to 103 have an image
+                ////when new images are added all you will need to do is save an image with the number of the egg and a string value that is static and it will pick it up.
+                //img.src = 'images/TestEgg' + snap.val().eggNum + '.png';
+                if (snap.val().eggNum <= 100 || snap.val().eggNum >= 104) {
+                    img.src = 'images/TestEgg102.png';
+                } else {
+                    img.src = 'images/TestEgg' + snap.val().eggNum + '.png';
+                }
+                ////similarly to the image if the name of a website contains the egg value then it should be able to be pulled up this way.
+                //img.href = 'https://haakonj.github.io/Prototype-Firebase-App/egg' + snap.val().eggNum + '.html'
 
                 section.appendChild(img);
                 recentCount++;

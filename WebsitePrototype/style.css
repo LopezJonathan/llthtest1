@@ -65,6 +65,15 @@
     flex: 0 0;
     width: 200px;
     height: 300px;
+    clip: rect(295px, 200px, 300px, 0px)
+}
+
+#greyProgressEgg {
+    position: absolute;
+    margin-top: -5px;
+    flex: 0 0;
+    width: 210px;
+    height: 310px;
 }
 
 #eggProgressTxt {

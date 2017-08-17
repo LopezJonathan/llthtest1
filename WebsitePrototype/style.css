@@ -23,7 +23,7 @@
 .recentEggItem {
     justify-content: space-around;
     flex: 5 0;
-    margin: 0 10%;
+    margin: 0 5%;
     text-align: center;
     width: 200px;
 }
@@ -31,10 +31,12 @@
 .recentEggItem h1 {
     flex: none;
     text-align: center;
+    font-size: 30px;
 }
 
 #btnAccount,
 #btnSettings {
+    margin-top: 100px;
     font-size: 25px;
     width: 175px;
     height: 75px;
@@ -85,7 +87,7 @@
 
 #collection {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row wrap;
 }
 
@@ -95,7 +97,7 @@
 }
 
 .eggItem h1 {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .eggImage {

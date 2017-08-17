@@ -17,8 +17,8 @@ const txtLogin = document.getElementById('btnLogin');
 const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 
-const map2 = document.getElementById('map2');
-const LocateButton = document.getElementById('LocateButton');
+const map = document.getElementById('map');
+const btnFind = document.getElementById('btnFind');
 const LoginMessage = document.getElementById('LoginMessage');
 
 //Add Login Event
@@ -124,16 +124,16 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
-        map2.classList.remove('hide');
-        LocateButton.classList.remove('hide');
+        map.classList.remove('hide');
+        btnFind.classList.remove('hide');
     } else {
         console.log('not Logged in');
         LoginMessage.classList.remove('hide');
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
-        map2.classList.add('hide');
-        LocateButton.classList.add('hide');
+        map.classList.add('hide');
+        btnFind.classList.add('hide');
     }
 });
 

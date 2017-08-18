@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+	</script>
+<style>
+	body{
+  background-color: #3f3437;
+  font-family: helvetica;
+}
+.playground{
+  background-color: #4C3E41;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 2px 1px 0 rgba(0,0,0,.12);
+  width: 530px;
+  height: 300px;
+  margin: 50px auto 0;
+  display: flex;
+  align-content: stretch;
+  h2{
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 40px;
+  }
+  .progress-wrapper{
+    margin: 5px;  
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .progress-container{
+    stroke: darken(#392F32,5%);
+    stroke-width: 2px;
+    fill: #392F32;
+    .top{
+      z-index:2;
+    }
+  }
+  .progress-content{
+    stroke: darken(#C2E362,5%);
+    stroke-width: 2px;
+    fill: #C2E362;
+    .top{
+      z-index:1;
+    }
+  }
+  .percentage{
+    fill: #F8F9F9;
+    text-shadow: 1px 1px 1px black;
+  }
+}
+	</style>
+</head>
+
+<body>
+<div class="playground">
+  <section class="progress-wrapper">
+    <h2>Cylinder progress bar</h2>
+    <svg id="cylinder-progress" width="150px" height="250px">
+      <g class="progress-container">
+        <rect x="0" y="20" width="100%" height="80"></rect>
+        <ellipse cx="75" cy="20" rx="50%" ry="15" class="top"></ellipse>
+        <ellipse cx="75" cy="100" rx="50%" ry="15" class="bottom"></ellipse>
+      </g>
+      <g class="progress-content">
+        <rect x="0" y="90" width="100%" height="10"></rect>
+        <ellipse cx="75" cy="20" rx="50%" ry="15" class="top"></ellipse>
+        <ellipse cx="75" cy="100" rx="50%" ry="15" class="bottom"></ellipse>
+      </g>
+      <g class="progress-container">
+        <ellipse cx="75" cy="20" rx="50%" ry="15" class="top" fill="none"></ellipse>
+      </g>
+      <text class="percentage" x="40%" y="80">10%</text>
+    </svg>
+  </section>
+  <section class="progress-wrapper">
+    <h2>Line progress bar</h2>
+    <svg id="line-progress" height="120" width="120">
+      <g class="progress-container">
+        <line x1="0"
+            y1="50%"
+            x2="100%"
+            y2="50%"
+            stroke-width="30" />
+      </g>
+      <g class="progress-content">
+        <line
+            x1="0"
+            y1="50%"
+            x2="100%"
+            y2="50%"
+            stroke="#C2E362" 
+            fill="transparent" 
+            stroke-dasharray="100%" 
+            stroke-dashoffset="50%" 
+            stroke-width="28" />
+      </g>
+      <text class="percentage" x="40%" y="55%">50%</text>
+    </svg>   
+  </section>
+</div>
+<script>
+	$(document).ready(function(){
+	var progressValue = 0;
+var orderAsc = true;
+var idLine = 'line-progress';
+var idCylinder = 'cylinder-progress';
+var cylinderPrgrs = $('#'+idCylinder);
+var linePrgrs = $('#'+idLine);
+
+//Update the cylinder progress bar
+var updateProgressCylinder = function(value){
+  var s = Snap('#'+idCylinder);
+  
+  var cylContent = cylinderPrgrs.find('.progress-content');
+  var rect = s.select('.progress-content>rect');
+  var topEllipse = s.select('.progress-content>.top');
+  
+//0% =  {y:90, height:0} / 100% = {y:20, height:80}
+  rect.attr({height: (80-(progressValue*.8)), y: (progressValue*.8)+20 });
+// 20 = 100% -- 100 = 0%
+  topEllipse.attr({cy: ((-progressValue*-.8)+20)});
+  s.select('.percentage').attr({ text: (100-(progressValue)+"%")});
+}
+//Update the line progress bar
+var updateProgressLine = function(value){  
+  linePrgrs.find('.progress-content>line').attr("stroke-dashoffset", progressValue+"%");
+  linePrgrs.find('text').html((100-progressValue)+"%");
+}
+//Update the content fill value
+var updateProgressValue = function(){
+  if(progressValue>=100)orderAsc = false;
+  else if(progressValue<=0)orderAsc = true;  
+  if(orderAsc)progressValue++;
+  else progressValue--;
+  updateProgressCylinder();
+  updateProgressLine();
+}
+//Update every n milli-seconds
+window.setInterval(function(){
+  updateProgressValue();
+}, 50);	
+	})
+	</script>
+</body>
+</html>

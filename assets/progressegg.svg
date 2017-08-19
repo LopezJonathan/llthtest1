@@ -1,1 +1,14 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411.1 526"><defs><style>.cls-1{fill:#d3d3d3;stroke:#86c8b9;stroke-miterlimit:10;stroke-width:4px;}.cls-2,.cls-3,.cls-4{isolation:isolate;}.cls-3{font-size:50.28px;}.cls-3,.cls-4{font-family:ArialMT, Arial;}.cls-4{font-size:221.09px;}</style></defs><title>progressegg</title><path class="cls-1" d="M444,371.8C444,477.3,519.8,597,648.2,597c117.4,0,202.9-105.3,202.9-224.5C851.2,235.8,736.2,75,648.2,75,555.2,75,444,248.1,444,371.8Z" transform="translate(-442 -73)"/><g class="cls-2"><text class="cls-3" transform="translate(151.4 72.4) scale(1.35 1)">Egg</text><text class="cls-3" transform="translate(84.6 132.7) scale(1.16 1)">Collection</text><text class="cls-3" transform="translate(70.1 193.1) scale(1.38 1)">Progress:</text></g></svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411.1 526">
+  <defs>
+    <style>
+.cls-1{fill:#d3d3d3;stroke:#86c8b9;stroke-miterlimit:10;stroke-width:4px;}.cls-2,.cls-3,.cls-4{isolation:isolate;}.cls-3{font-size:50.28px;}.cls-3,.cls-4{font-family:ArialMT, Arial;}.cls-4{font-size:221.09px;}
+</style>
+  </defs>
+  <title>progressegg</title>
+  <path class="cls-1" d="M444,371.8C444,477.3,519.8,597,648.2,597c117.4,0,202.9-105.3,202.9-224.5C851.2,235.8,736.2,75,648.2,75,555.2,75,444,248.1,444,371.8Z" transform="translate(-442 -73)"/>
+  <g class="cls-2">
+    <text class="cls-3" transform="translate(146 78.4) scale(1.35 1)">Egg</text>
+    <text class="cls-3" transform="translate(84 136.7) scale(1.16 1)">Collection</text>
+    <text class="cls-3" transform="translate(65 193.1) scale(1.38 1)">Progress:</text>
+  </g>
+</svg>

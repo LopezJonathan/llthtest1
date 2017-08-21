@@ -37,13 +37,14 @@ btnSignUp.addEventListener('click', e => {
     const email = txtEmail.value;
     const pass = txtPassword.value;
     const auth = firebase.auth();
-    //Sign in
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
+	const dbUserRef = firebase.database().ref(); //Create Reference to database
+	const user = firebase.auth().currentUser; //Send user verification email
+	//Create User and Sign in
+    const promise = auth.createUserWithEmailAndPassword(email, pass);	
     promise.catch(e => console.log(e.message));
 
-    const dbUserRef = firebase.database().ref();
-
-    firebase.auth().onAuthStateChanged(firebaseUser => {
+    //Add User data to database
+	firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             dbUserRef.child('users').child(firebaseUser.uid).set({
                 UserName: name,
@@ -106,8 +107,16 @@ btnSignUp.addEventListener('click', e => {
             });
         }
     });
+	
+	user.sendEmailVerification().then(function() {
+	  // Email sent.
+		console.log('Email was sent');
+	}).catch(function(error) {
+	  // An error happened.
+		console.log('Error: Email was not sent');
+	});
+	
 });
-
 //
 btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
@@ -128,4 +137,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
     }
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+	if (!user.emailVerified) {
+		//Sign out user
+		firebase.auth().signOut();
+
+	} else {
+		// Leave user signed in.
+		console.log('Email not verified. You are signed out.');
+	}
 });

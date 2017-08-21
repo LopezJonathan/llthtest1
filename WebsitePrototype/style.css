@@ -2,6 +2,49 @@
     display: none;
 }
 
+.demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+
+.demo-card-event.mdl-card {
+    width: 256px;
+    height: 356px;
+    background: rgba(25, 65, 104, 1);
+    margin: 10px;
+    margin-left: 5%;
+    position: fixed;
+    bottom: 10px;
+}
+
+.demo-card-event>.mdl-card__actions {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.demo-card-event>.mdl-card__title {
+    align-items: flex-start;
+}
+
+.demo-card-event>.mdl-card__title>h4 {
+    margin-top: 0;
+}
+
+.demo-card-event>.mdl-card__actions {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.demo-card-event>.mdl-card__actions>.material-icons {
+    padding-right: 10px;
+}
+
+.demo-card-event>.mdl-card__title,
+.demo-card-event>.mdl-card__actions,
+.demo-card-event>.mdl-card__actions>.mdl-button {
+    color: #fff;
+}
+
 .profileH1 {
     text-align: center;
 }
@@ -15,9 +58,10 @@
 }
 
 #recentEgg {
-    height: 350px;
+    height: 750px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .recentEggItem {
@@ -65,7 +109,6 @@
     flex: 0 0;
     width: 200px;
     height: 300px;
-    clip: rect(295px, 200px, 300px, 0px)
 }
 
 #greyProgressEgg {
@@ -235,6 +278,12 @@ body,
     .hide {
         display: none;
     }
+    #recentEgg {
+        height: 250px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
     html,
     body,
     #map2 {
@@ -340,6 +389,21 @@ body,
         margin: 0;
         margin-top: 0px;
         height: 820px;
+    }
+    .demo-card-event.mdl-card {
+        width: 256px;
+        height: 356px;
+        background: rgba(25, 65, 104, 1);
+        margin: 10px;
+        margin-left: 85%;
+        position: fixed;
+        bottom: 10px;
+    }
+    #recentEgg {
+        height: 500px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
     html,
     body,

@@ -136,8 +136,6 @@
      }
  });
 
- const scannedEggs = document.getElementById('scannedEggs');
-
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser) {
@@ -168,33 +166,6 @@
                              console.log(latitude, longitude)
                              const dbUserRef = firebase.database().ref();
                              dbUserRef.child('users').child(firebaseUser.uid).child('eui').child('e' + snap.val().egg + 'ui').set({ bool: "true", eggNum: snap.val().egg, timeStamp: new Date().toString() });
-
-                             const scanned = document.getElementById('scanned');
-                             const updateCard = document.getElementById('updateCard');
-
-                             scanned.innerText = 'Egg ' + snap.val().egg + ' has been scanned!';
-                             const br = document.createElement('br');
-                             scanned.appendChild(br);
-
-                             const img = document.createElement('img');
-                             img.classList.add('eggImage');
-                             img.setAttribute("style", "margin-top:10px;");
-                             img.title = 'egg' + snap.val().egg;
-
-                             ////until more images are added this is here so that if any eggs that are listed as greater or less than 101 to 103 have an image
-                             ////when new images are added all you will need to do is save an image with the number of the egg and a string value that is static and it will pick it up.
-                             //img.src = 'images/TestEgg' + snap.val().eggNum + '.png';
-                             if (snap.val().eggNum <= 100 || snap.val().egg >= 104) {
-                                 img.src = 'images/TestEgg102.png';
-                             } else {
-                                 img.src = 'images/TestEgg' + snap.val().egg + '.png';
-                             }
-                             ////similarly to the image if the name of a website contains the egg value then it should be able to be pulled up this way.
-                             //img.href = 'https://haakonj.github.io/Prototype-Firebase-App/egg' + snap.val().eggNum + '.html'
-
-                             scanned.appendChild(img);
-
-                             updateCard.classList.remove('hide');
                          }
                      });
 

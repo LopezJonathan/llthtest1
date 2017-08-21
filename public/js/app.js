@@ -108,13 +108,28 @@ btnSignUp.addEventListener('click', e => {
         }
     });
 	
-	user.sendEmailVerification().then(function() {
+	firebase.auth().onAuthStateChanged(function(user){
+		user.sendEmailVerification();
+	})
+	
+	firebase.auth().onAuthStateChanged(function(user) { 
+  		if (user.emailVerified) {
+    		console.log('Email is verified');
+		}
+		else {
+			firebase.auth().signOut();
+			console.log('Email is not verified');
+			console.log('Please verify email then Login');
+		}
+});
+	
+/*	user.sendEmailVerification().then(function() {
 	  // Email sent.
 		console.log('Email was sent');
 	}).catch(function(error) {
 	  // An error happened.
 		console.log('Error: Email was not sent');
-	});
+	});*/
 	
 });
 //
@@ -139,7 +154,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 });
 
-firebase.auth().onAuthStateChanged(function(user) {
+/*firebase.auth().onAuthStateChanged(function(user) {
 	if (!user.emailVerified) {
 		//Sign out user
 		firebase.auth().signOut();
@@ -148,4 +163,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 		// Leave user signed in.
 		console.log('Email not verified. You are signed out.');
 	}
-});
+});*/

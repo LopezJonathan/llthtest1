@@ -13,10 +13,15 @@ firebase.initializeApp(config);
 const txtName = document.getElementById('txtName');
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
+const txtUserName = document.getElementById('txtUserName');
+const frmName = document.getElementById('frmName');
+const frmEmail = document.getElementById('frmEmail');
+const frmPassword = document.getElementById('frmPassword');
+const frmUserName = document.getElementById('frmUserName');
 const txtLogin = document.getElementById('btnLogin');
 const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
-const LoginMessage = document.getElementById('LoginMessage')
+const LoginMessage = document.getElementById('LoginMessage');
 
 //Add Login Event
 btnLogin.addEventListener('click', e => {
@@ -32,19 +37,19 @@ btnLogin.addEventListener('click', e => {
 //Add signup event
 btnSignUp.addEventListener('click', e => {
     //Get email and pass
-    //TODO: Check for real Emails
     const name = txtName.value;
     const email = txtEmail.value;
     const pass = txtPassword.value;
     const auth = firebase.auth();
-	const dbUserRef = firebase.database().ref(); //Create Reference to database
-	const user = firebase.auth().currentUser; //Send user verification email
+	const dbUserRef = firebase.database().ref();
+	const user = firebase.auth().currentUser;
+	
 	//Create User and Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass);	
     promise.catch(e => console.log(e.message));
 
     //Add User data to database
-	firebase.auth().onAuthStateChanged(firebaseUser => {
+	auth.onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             dbUserRef.child('users').child(firebaseUser.uid).set({
                 UserName: name,
@@ -105,38 +110,15 @@ btnSignUp.addEventListener('click', e => {
                     e102ui: { bool: false, eggNum: 102 }
                 }
             });
+			console.log('User added to database');
         }
-    });
-	
-	firebase.auth().onAuthStateChanged(function(user){
-		user.sendEmailVerification();
-	})
-	
-	firebase.auth().onAuthStateChanged(function(user) { 
-  		if (user.emailVerified) {
-    		console.log('Email is verified');
-		}
-		else {
-			firebase.auth().signOut();
-			console.log('Email is not verified');
-			console.log('Please verify email then Login');
-		}
-});
-	
-/*	user.sendEmailVerification().then(function() {
-	  // Email sent.
-		console.log('Email was sent');
-	}).catch(function(error) {
-	  // An error happened.
-		console.log('Error: Email was not sent');
-	});*/
-	
+    });	
 });
 //
 btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
-
+	
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -145,22 +127,43 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
+		btnVerify.classList.remove('hide');
+		frmName.classList.add('hide');
+		frmEmail.classList.add('hide');
+		frmPassword.classList.add('hide');
+		frmUserName.classList.remove('hide');
+		
     } else {
         console.log('not Logged in');
         LoginMessage.classList.remove('hide');
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
+		btnVerify.classList.add('hide');
+		frmName.classList.remove('hide');
+		frmEmail.classList.remove('hide');
+		frmPassword.classList.remove('hide');
+		frmUserName.classList.add('hide');
     }
 });
 
-/*firebase.auth().onAuthStateChanged(function(user) {
-	if (!user.emailVerified) {
-		//Sign out user
-		firebase.auth().signOut();
-
-	} else {
-		// Leave user signed in.
-		console.log('Email not verified. You are signed out.');
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user.emailVerified === true) {
+		// User is signed in.
+		firebase.auth().signInWithEmailAndPassword(email, pass);
+		console.log('Email has been verified');
+		//promise.catch(e => console.log(e.message));
 	}
-});*/
+	
+	else{
+		firebase.auth().signOut();
+		console.log('Email is not verified. User not signed in.');
+		console.log('Please verify email then try logging in.');
+		user.sendEmailVerification();
+		console.log('Verification email was sent.');
+	}
+});
+
+
+
+

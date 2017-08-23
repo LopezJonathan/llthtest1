@@ -160,14 +160,15 @@
                      var found = longitude + "," + latitude;
                      const map = document.getElementById('map');
                      const dbUserRef = firebase.database().ref();
-                     map.src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
+                     // map.src = 'https://www.arcgis.com/home/webmap/viewer.html?webmap=ee17122bc13e41e2977d75ef541647dc&extent=-122.3642,47.7973,' + found + '&level=18&marker=' + found;
 
-                     eggs.orderByChild('latitude').startAt(latitude - 0.0001).endAt(latitude + 0.0001).on('child_added', function(snap) {
-                         if (snap.val().longitude >= (longitude - 0.0001) && snap.val().longitude <= (longitude + 0.0001)) {
-                             console.log('Egg' + snap.val().egg + 'Bool')
-                             console.log(latitude, longitude)
+                     eggs.orderByChild('egg').on('child_added', function(snap) {
+                         if (snap.val().longitude >= (longitude - 0.0001) && snap.val().longitude <= (longitude + 0.0001) && snap.val().latitude >= (latitude - 0.0001) && snap.val().latitude <= (latitude + 0.0001)) {
+                             //console.log('Egg' + snap.val().egg + 'Bool')
+                             //console.log(latitude, longitude)
                              const dbUserRef = firebase.database().ref();
-                             dbUserRef.child('users').child(firebaseUser.uid).child('eui').child('e' + snap.val().egg + 'ui').set({ bool: "true", eggNum: snap.val().egg, timeStamp: new Date().toString() });
+                             //Date.now() gives you the number of milliseconds since january 1 1970 since the newest scanned egg will always be the largest meaning that it will always show up in most recent eggs in profile
+                             dbUserRef.child('users').child(firebaseUser.uid).child('eui').child('e' + snap.val().egg + 'ui').set({ bool: "true", eggNum: snap.val().egg, timeStamp: Date.now() });
 
                              const scanned = document.getElementById('scanned');
                              const updateCard = document.getElementById('updateCard');
@@ -212,7 +213,7 @@
                  }
 
                  function error() {
-                     document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
+                     //document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
                  }
 
                  navigator.geolocation.getCurrentPosition(success, error);
@@ -274,4 +275,9 @@
                      });
              });
      }
+ });
+
+ const btnHide = document.getElementById('btnHide');
+ btnHide.addEventListener('click', e => {
+     updateCard.classList.add('hide');
  });

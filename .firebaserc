@@ -1,6 +1,12 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "testproject-4d8c5",
     "test-llth-project-4d8c5": "test-project-4d8c5"
   }
 }
+=======
+    "default": "llth-firebasetest"
+  }
+}
+>>>>>>> JonsBranch

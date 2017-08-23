@@ -1,0 +1,11 @@
+
+.firebaserc
+.gitattributes
+firebase.json
+functions/node_modules/firebase-functions/LICENSE
+functions/node_modules/firebase-functions/LICENSE~HEAD
+functions/node_modules/firebase-functions/LICENSE
+functions/node_modules/firebase-functions/LICENSE~JonsBranch
+functions/node_modules/firebase-functions/LICENSE
+functions/package-lock.json
+node_modules/nodejs-latest/LICENSE

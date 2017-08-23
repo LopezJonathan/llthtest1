@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 src = "https://www.gstatic.com/firebasejs/4.3.0/firebase.js"
 
   // Initialize Firebase
@@ -6,6 +7,19 @@ var config = {   apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",   authDo
 firebase.initializeApp(config);
 
 
+=======
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyBi8HNIbweZnYK0RE3oEt0gjj9zpnV9TJo",
+	authDomain: "llth-firebasetest.firebaseapp.com",
+	databaseURL: "https://llth-firebasetest.firebaseio.com",
+	projectId: "llth-firebasetest",
+	storageBucket: "llth-firebasetest.appspot.com",
+	messagingSenderId: "212300061606"
+};
+firebase.initializeApp(config);
+
+>>>>>>> JonsBranch
 // Create reference
 const dbRefObject = firebase.database().ref();
 const dbRefList = dbRefObject.child('stuff');
@@ -19,6 +33,7 @@ const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 const LoginMessage = document.getElementById('LoginMessage')
 
+<<<<<<< HEAD
 //Add Login Event
 btnLogin.addEventListener('click', e => {
     //Get email and pass
@@ -115,6 +130,8 @@ btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
 
+=======
+>>>>>>> JonsBranch
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -132,6 +149,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 });
 
+<<<<<<< HEAD
 //recent egg function
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -144,6 +162,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         //const notCollected = 0;
         //const collected = 0;
 
+=======
+//egg collection function
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        const collection = document.getElementById('collection')
+        const dbUserRef = firebase.database().ref();
+        const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
+
+>>>>>>> JonsBranch
         dbEggRef.orderByChild('eggNum').on('child_added', function(snap) {
             if (snap.val().bool == "true") {
                 const section = document.createElement('section');
@@ -173,7 +200,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 //img.href = 'https://haakonj.github.io/Prototype-Firebase-App/egg' + snap.val().eggNum + '.html'
 
                 section.appendChild(img)
+<<<<<<< HEAD
                     //collected++;
+=======
+>>>>>>> JonsBranch
             } else {
                 const section = document.createElement('section');
                 section.classList.add('eggItem');
@@ -192,12 +222,16 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 img.src = 'images/NewMysteryEgg.png';
 
                 section.appendChild(img);
+<<<<<<< HEAD
                 //notCollected++;
                 //collected++;
             }
             //const pecentCollect;
             //const collectedegg = notCollected / collected;
             // pecentCollect = Math.round(collectedegg * 100);
+=======
+            }
+>>>>>>> JonsBranch
         });
 
     }

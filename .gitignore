@@ -1,0 +1,7 @@
+
+.firebaserc
+.gitattributes
+firebase.json
+functions/
+functions/package-lock.json
+node_modules/

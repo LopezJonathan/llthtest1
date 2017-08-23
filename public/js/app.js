@@ -127,7 +127,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
-		btnVerify.classList.remove('hide');
 		frmName.classList.add('hide');
 		frmEmail.classList.add('hide');
 		frmPassword.classList.add('hide');
@@ -139,7 +138,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
-		btnVerify.classList.add('hide');
 		frmName.classList.remove('hide');
 		frmEmail.classList.remove('hide');
 		frmPassword.classList.remove('hide');

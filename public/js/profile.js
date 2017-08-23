@@ -18,14 +18,10 @@ const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 const LoginMessage = document.getElementById('LoginMessage')
 
-//Database References
-const dbUserRef = firebase.database().ref();
-const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
-
 //Progress Bar Variables
 var layer1 = document.getElementById('Layer_1');
 var totalEggs = 50;
-var collectedEggs;
+var collectedEggs = 0;
 var missingEggs = (totalEggs - collectedEggs);
 var percentage = (collectedEggs / totalEggs);
 var getSvgHeight = layer1.height();
@@ -33,6 +29,11 @@ var calcClip = getSvgHeight - (percentage * getSvgHeight);
 var fromTop = calcClip;
 var rect = "rect("+fromTop+"px"+", 380px, 450px, 0px)";
 var wholePerc = (percentage * 100);
+
+
+//Database References
+const dbUserRef = firebase.database().ref();
+const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
 
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -98,8 +99,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 //Updates Progress bar when an egg is collected
 firebase.auth().onAuthStateChanged(firebaseUser => {
 	if (firebaseUser){
-
-		dbEggRef.orderByKey().on("child_changed", function(snap){
+		
+		dbEggRef.orderByKey().on("child_added", function(snap){
 			if (snap.val().bool === "true"){
 				collectedEggs++;
 			}

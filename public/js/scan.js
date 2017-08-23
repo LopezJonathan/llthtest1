@@ -10,6 +10,11 @@
  const txtName = document.getElementById('txtName');
  const txtEmail = document.getElementById('txtEmail');
  const txtPassword = document.getElementById('txtPassword');
+ const txtUserName = document.getElementById('txtUserName');
+ const frmName = document.getElementById('frmName');
+ const frmEmail = document.getElementById('frmEmail');
+ const frmPassword = document.getElementById('frmPassword');
+ const frmUserName = document.getElementById('frmUserName');
  const txtLogin = document.getElementById('btnLogin');
  const txtSignUp = document.getElementById('btnSignUp');
  const txtLogout = document.getElementById('btnLogout');
@@ -125,6 +130,10 @@
          btnLogout.classList.remove('hide');
          btnLogin.classList.add('hide');
          btnSignUp.classList.add('hide');
+         frmName.classList.add('hide');
+         frmEmail.classList.add('hide');
+         frmPassword.classList.add('hide');
+         frmUserName.classList.remove('hide');
          btnScan.classList.remove('hide');
      } else {
          console.log('not Logged in');
@@ -132,6 +141,10 @@
          btnLogout.classList.add('hide');
          btnLogin.classList.remove('hide');
          btnSignUp.classList.remove('hide');
+         frmName.classList.remove('hide');
+         frmEmail.classList.remove('hide');
+         frmPassword.classList.remove('hide');
+         frmUserName.classList.add('hide');
          btnScan.classList.add('hide');
      }
  });
@@ -280,4 +293,19 @@
  const btnHide = document.getElementById('btnHide');
  btnHide.addEventListener('click', e => {
      updateCard.classList.add('hide');
+ });
+
+ firebase.auth().onAuthStateChanged(function(user) {
+     if (user.emailVerified === true) {
+         // User is signed in.
+         //firebase.auth().signInWithEmailAndPassword(email, pass);
+         console.log('Email has been verified');
+         //promise.catch(e => console.log(e.message));
+     } else {
+         firebase.auth().signOut();
+         console.log('Email is not verified. User not signed in.');
+         console.log('Please verify email then try logging in.');
+         user.sendEmailVerification();
+         console.log('Verification email was sent.');
+     }
  });

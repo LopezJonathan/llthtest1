@@ -2,7 +2,14 @@ src = "https://www.gstatic.com/firebasejs/4.3.0/firebase.js"
 
   // Initialize Firebase
  
-var config = {   apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",   authDomain: "test-project-4d8c5.firebaseapp.com",   databaseURL: "https://test-project-4d8c5.firebaseio.com",   projectId: "test-project-4d8c5",   storageBucket: "test-project-4d8c5.appspot.com",   messagingSenderId: "591336136232"  }; 
+var config = {  
+    apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",
+      authDomain: "test-project-4d8c5.firebaseapp.com",
+      databaseURL: "https://test-project-4d8c5.firebaseio.com",
+      projectId: "test-project-4d8c5",
+      storageBucket: "test-project-4d8c5.appspot.com",
+      messagingSenderId: "591336136232"
+}; 
 firebase.initializeApp(config);
 
 //Get elements
@@ -38,7 +45,8 @@ btnSignUp.addEventListener('click', e => {
     const auth = firebase.auth();
     //Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
+    //promise.catch(e => console.log(e.message));
+    promise.catch(e => console.log('Logged in'));
 
     const dbUserRef = firebase.database().ref();
 
@@ -152,7 +160,7 @@ btnFind.addEventListener('click', e => {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var found = longitude + "," + latitude;
-            document.getElementById('map').src = 'https://www.arcgis.com/home/webmap/viewer.html?webmap=ee17122bc13e41e2977d75ef541647dc&extent=-122.3642,47.7973,' + found + '&level=18&marker=' + found;
+            //document.getElementById('map').src = 'https://www.arcgis.com/home/webmap/viewer.html?webmap=ee17122bc13e41e2977d75ef541647dc&extent=-122.3642,47.7973,' + found + '&level=18&marker=' + found;
 
             var radlat1 = Math.PI * latitude / 180;
             var radlat2 = Math.PI * (latitude + .0002) / 180;
@@ -170,7 +178,7 @@ btnFind.addEventListener('click', e => {
         }
 
         function error() {
-            document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
+            //document.getElementById('map').src = 'http://www.arcgis.com/apps/webappviewer/index.html?id=4abca8e4a6bd40119c2515c1a8ebe07c&extent=-13619801.2375%2C6075299.3948%2C-13608335.6833%2C6080783.7516%2C102100';
         }
 
         navigator.geolocation.getCurrentPosition(success, error);

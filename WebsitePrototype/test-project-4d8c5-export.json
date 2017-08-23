@@ -1,281 +1,331 @@
 {
-    "eggs": {
-        "egg1": {
-            "egg": 1,
-            "latitude": 47.81873,
-            "longitude": -122.264629
-        },
-        "egg10": {
-            "egg": 10,
-            "latitude": 47.818937,
-            "longitude": -122.289016
-        },
-        "egg101": {
-            "egg": 101,
-            "latitude": 48.039125,
-            "longitude": -122.249765
-        },
-        "egg102": {
-            "egg": 102,
-            "latitude": 48.039126,
-            "longitude": -122.249768
-        },
-        "egg103": {
-            "egg": 103,
-            "latitude": 47.760985201638505,
-            "longitude": -122.19148186523401
-        },
-        "egg11": {
-            "egg": 11,
-            "latitude": 47.816835,
-            "longitude": -122.289307
-        },
-        "egg12": {
-            "egg": 12,
-            "latitude": 47.817704,
-            "longitude": -122.293402
-        },
-        "egg13": {
-            "egg": 13,
-            "latitude": 47.8163109,
-            "longitude": -122.2953291
-        },
-        "egg14": {
-            "egg": 14,
-            "latitude": 47.821889,
-            "longitude": -122.295186
-        },
-        "egg15": {
-            "egg": 15,
-            "latitude": 47.823264,
-            "longitude": -122.288697
-        },
-        "egg16": {
-            "egg": 16,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg17": {
-            "egg": 17,
-            "latitude": 47.824073,
-            "longitude": -122.293133
-        },
-        "egg18": {
-            "egg": 18,
-            "latitude": 47.8253745,
-            "longitude": -122.2938433
-        },
-        "egg19": {
-            "egg": 19,
-            "latitude": 47.826014,
-            "longitude": -122.293353
-        },
-        "egg2": {
-            "egg": 2,
-            "latitude": 47.81994,
-            "longitude": -122.272304
-        },
-        "egg20": {
-            "egg": 20,
-            "latitude": 47.826721,
-            "longitude": -122.293603
-        },
-        "egg21": {
-            "egg": 21,
-            "latitude": 47.827762,
-            "longitude": -122.293094
-        },
-        "egg22": {
-            "egg": 22,
-            "latitude": 47.828929,
-            "longitude": -122.2931114
-        },
-        "egg23": {
-            "egg": 23,
-            "latitude": 47.820608,
-            "longitude": -122.29691
-        },
-        "egg24": {
-            "egg": 24,
-            "latitude": 47.820782,
-            "longitude": -122.3020596
-        },
-        "egg25": {
-            "egg": 25,
-            "latitude": 47.814246,
-            "longitude": -122.301678
-        },
-        "egg26": {
-            "egg": 26,
-            "latitude": 47.812202,
-            "longitude": -122.303852
-        },
-        "egg27": {
-            "egg": 27,
-            "latitude": 47.815706,
-            "longitude": -122.306899
-        },
-        "egg28": {
-            "egg": 28,
-            "latitude": 47.820559,
-            "longitude": 122.312324
-        },
-        "egg29": {
-            "egg": 29,
-            "latitude": 47.8208183,
-            "longitude": -122.3158431
-        },
-        "egg3": {
-            "egg": 3,
-            "latitude": 47.817767,
-            "longitude": -122.277605
-        },
-        "egg30": {
-            "egg": 30,
-            "latitude": 47.8207165,
-            "longitude": -122.3159208
-        },
-        "egg31": {
-            "egg": 31,
-            "latitude": 47.8202032,
-            "longitude": -122.3163299
-        },
-        "egg32": {
-            "egg": 32,
-            "latitude": 47.819619,
-            "longitude": -122.3168498
-        },
-        "egg33": {
-            "egg": 33,
-            "latitude": 47.8209215,
-            "longitude": -122.3170215
-        },
-        "egg34": {
-            "egg": 34,
-            "latitude": 47.8209113,
-            "longitude": -122.3173782
-        },
-        "egg35": {
-            "egg": 35,
-            "latitude": 47.8209393,
-            "longitude": -122.3189312
-        },
-        "egg36": {
-            "egg": 36,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg37": {
-            "egg": 37,
-            "latitude": 47.8221750,
-            "longitude": -122.3168020
-        },
-        "egg38": {
-            "egg": 38,
-            "latitude": 47.8219860,
-            "longitude": -122.3193610
-        },
-        "egg39": {
-            "egg": 39,
-            "latitude": 47.8210901,
-            "longitude": -122.3219845
-        },
-        "egg4": {
-            "egg": 4,
-            "latitude": 47.818171,
-            "longitude": -122.277414
-        },
-        "egg40": {
-            "egg": 40,
-            "latitude": 47.8208780,
-            "longitude": -122.3235170
-        },
-        "egg41": {
-            "egg": 41,
-            "latitude": 47.8210512,
-            "longitude": -122.3255099
-        },
-        "egg42": {
-            "egg": 42,
-            "latitude": 47.8195485,
-            "longitude": -122.3228223
-        },
-        "egg43": {
-            "egg": 43,
-            "latitude": 47.8162090,
-            "longitude": -122.3269450
-        },
-        "egg44": {
-            "egg": 44,
-            "latitude": 47.8157862,
-            "longitude": -122.3289567
-        },
-        "egg45": {
-            "egg": 45,
-            "latitude": 47.8110440,
-            "longitude": -122.3253200
-        },
-        "egg46": {
-            "egg": 46,
-            "latitude": 47.8179701,
-            "longitude": -122.3153467
-        },
-        "egg47": {
-            "egg": 47,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg48": {
-            "egg": 48,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg49": {
-            "egg": 49,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg5": {
-            "egg": 5,
-            "latitude": 47.818314,
-            "longitude": -122.277502
-        },
-        "egg50": {
-            "egg": 50,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        },
-        "egg6": {
-            "egg": 6,
-            "latitude": 47.821521,
-            "longitude": -122.283722
-        },
-        "egg7": {
-            "egg": 7,
-            "latitude": 47.820865,
-            "longitude": -122.32352
-        },
-        "egg8": {
-            "egg": 8,
-            "latitude": 47.819903,
-            "longitude": -122.288972
-        },
-        "egg9": {
-            "egg": 9,
-            "latitude": "Latitude",
-            "longitude": "Longitude"
-        }
+   "eggs": {
+    "egg1": {
+      "egg": 1,
+      "latitude": 47.81873,
+      "longitude": -122.264629
     },
+    "egg10": {
+      "egg": 10,
+      "latitude": 47.818937,
+      "longitude": -122.289016
+    },
+    "egg101": {
+      "egg": 101,
+      "latitude": 48.039125,
+      "longitude": -122.249765
+    },
+    "egg102": {
+      "egg": 102,
+      "latitude": 48.039126,
+      "longitude": -122.249768
+    },
+    "egg103": {
+      "egg": 103,
+      "latitude": 47.760985201638505,
+      "longitude": -122.19148186523401
+    },
+    "egg11": {
+      "egg": 11,
+      "latitude": 47.816835,
+      "longitude": -122.289307
+    },
+    "egg12": {
+      "egg": 12,
+      "latitude": 47.817704,
+      "longitude": -122.293402
+    },
+    "egg13": {
+      "egg": 13,
+      "latitude": 47.8163109,
+      "longitude": -122.2953291
+    },
+    "egg14": {
+      "egg": 14,
+      "latitude": 47.821889,
+      "longitude": -122.295186
+    },
+    "egg15": {
+      "egg": 15,
+      "latitude": 47.823264,
+      "longitude": -122.288697
+    },
+    "egg16": {
+      "egg": 16,
+      "latitude": 47.8260140,
+      "longitude": -122.2933530
+    },
+    "egg17": {
+      "egg": 17,
+      "latitude": 47.824073,
+      "longitude": -122.293133
+    },
+    "egg18": {
+      "egg": 18,
+      "latitude": 47.8253745,
+      "longitude": -122.2938433
+    },
+    "egg19": {
+      "egg": 19,
+      "latitude": 47.826014,
+      "longitude": -122.293353
+    },
+    "egg2": {
+      "egg": 2,
+      "latitude": 47.81994,
+      "longitude": -122.272304
+    },
+    "egg20": {
+      "egg": 20,
+      "latitude": 47.826721,
+      "longitude": -122.293603
+    },
+    "egg21": {
+      "egg": 21,
+      "latitude": 47.827762,
+      "longitude": -122.293094
+    },
+    "egg22": {
+      "egg": 22,
+      "latitude": 47.828929,
+      "longitude": -122.2931114
+    },
+    "egg23": {
+      "egg": 23,
+      "latitude": 47.820608,
+      "longitude": -122.29691
+    },
+    "egg24": {
+      "egg": 24,
+      "latitude": 47.820782,
+      "longitude": -122.3020596
+    },
+    "egg25": {
+      "egg": 25,
+      "latitude": 47.814246,
+      "longitude": -122.301678
+    },
+    "egg26": {
+      "egg": 26,
+      "latitude": 47.812202,
+      "longitude": -122.303852
+    },
+    "egg27": {
+      "egg": 27,
+      "latitude": 47.815706,
+      "longitude": -122.306899
+    },
+    "egg28": {
+      "egg": 28,
+      "latitude": 47.820559,
+      "longitude": 122.312324
+    },
+    "egg29": {
+      "egg": 29,
+      "latitude": 47.8208183,
+      "longitude": -122.3158431
+    },
+    "egg3": {
+      "egg": 3,
+      "latitude": 47.817767,
+      "longitude": -122.277605
+    },
+    "egg30": {
+      "egg": 30,
+      "latitude": 47.8207165,
+      "longitude": -122.3159208
+    },
+    "egg31": {
+      "egg": 31,
+      "latitude": 47.8202032,
+      "longitude": -122.3163299
+    },
+    "egg32": {
+      "egg": 32,
+      "latitude": 47.819619,
+      "longitude": -122.3168498
+    },
+    "egg33": {
+      "egg": 33,
+      "latitude": 47.8209215,
+      "longitude": -122.3170215
+    },
+    "egg34": {
+      "egg": 34,
+      "latitude": 47.8209113,
+      "longitude": -122.3173782
+    },
+    "egg35": {
+      "egg": 35,
+      "latitude": 47.8209393,
+      "longitude": -122.3189312
+    },
+    "egg36": {
+      "egg": 36,
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
+    "egg37": {
+      "egg": 37,
+      "latitude": 47.8221750,
+      "longitude": -122.3168020
+    },
+    "egg38": {
+      "egg": 38,
+      "latitude": 47.8219860,
+      "longitude": -122.3193610
+    },
+    "egg39": {
+      "egg": 39,
+      "latitude": 47.8210901,
+      "longitude": -122.3219845
+    },
+    "egg4": {
+      "egg": 4,
+      "latitude": 47.818171,
+      "longitude": -122.277414
+    },
+    "egg40": {
+      "egg": 40,
+      "latitude": 47.8208780,
+      "longitude": -122.3235170
+    },
+    "egg41": {
+      "egg": 41,
+      "latitude": 47.8210512,
+      "longitude": -122.3255099
+    },
+    "egg42": {
+      "egg": 42,
+      "latitude": 47.8195485,
+      "longitude": -122.3228223
+    },
+    "egg43": {
+      "egg": 43,
+      "latitude": 47.8162090,
+      "longitude": -122.3269450
+    },
+    "egg44": {
+      "egg": 44,
+      "latitude": 47.8157862,
+      "longitude": -122.3289567
+    },
+    "egg45": {
+      "egg": 45,
+      "latitude": 47.8110440,
+      "longitude": -122.3253200
+    },
+    "egg46": {
+      "egg": 46,
+      "latitude": 47.8179701,
+      "longitude": -122.3153467
+    },
+    "egg47": {
+      "egg": 47,
+      "latitude": 47.8166640,
+      "longitude": -122.3172860
+    },
+    "egg48": {
+      "egg": 48,
+      "latitude": 47.8469770,
+      "longitude": -122.2961920
+    },
+    "egg49": {
+      "egg": 49,
+      "latitude": 47.8288010,
+      "longitude": -122.3261750
+    },
+    "egg5": {
+      "egg": 5,
+      "latitude": 47.818314,
+      "longitude": -122.277502
+    },
+    "egg50": {
+      "egg": 50,
+      "latitude": 47.8349900,
+      "longitude": -122.3029920
+    },
+    "egg51": {
+      "egg": 51,
+      "latitude": 47.8354350,
+      "longitude": -122.3027420
+    },
+    "egg52": {
+      "egg": 52,
+      "latitude": 47.8384220,
+      "longitude": -122.3006720
+    },
+    "egg53": {
+      "egg": 53,
+      "latitude": 47.8329820,
+      "longitude": -122.2803890
+    },
+    "egg54": {
+      "egg": 54,
+      "latitude": 47.8331240,
+      "longitude": -122.2790410
+    },
+    "egg55": {
+      "egg": 55,
+      "latitude": 47.8331220,
+      "longitude": -122.2783080
+    },
+    "egg56": {
+      "egg": 56,
+      "latitude": 47.8334120,
+      "longitude": -122.2673720
+    },
+    "egg57": {
+      "egg": 57,
+      "latitude": 47.8299540,
+      "longitude": -122.2725710
+    },
+    "egg58": {
+      "egg": 58,
+      "latitude": 47.8274130,
+      "longitude": -122.2755540
+    },
+    "egg59": {
+      "egg": 59,
+      "latitude": 47.8159286,
+      "longitude": -122.3268091
+    },
+    "egg6": {
+      "egg": 6,
+      "latitude": 47.821521,
+      "longitude": -122.283722
+    },
+    "egg60": {
+      "egg": 60,
+      "latitude": 47.8146714,
+      "longitude": -122.3281073
+    },
+    "egg7": {
+      "egg": 7,
+      "latitude": 47.820865,
+      "longitude": -122.32352
+    },
+    "egg8": {
+      "egg": 8,
+      "latitude": 47.819903,
+      "longitude": -122.288972
+    },
+    "egg9": {
+      "egg": 9,
+      "latitude": 47.8189370,
+      "longitude": -122.2890160
+    }
+  },
     "users": {
         "7VM1zaLjvuXCQa4xUGZfaPl2VQQ2": {
             "Email": "HaakonJakobson@hotmail.com",
             "UserName": "Haakon Jakobson",
             "eui": {
-                "e101ui": {
-                    "bool": "true",
-                    "eggNum": 101,
-                    "timeStamp": "Wed Aug 16 2017 00:20:19 GMT-0700 (Pacific Daylight Time)"
-                },
+              "e101ui": {
+                "bool": "true",
+                "eggNum": 101,
+                "timeStamp": "Wed Aug 16 2017 00:20:19 GMT-0700 (Pacific Daylight Time)"
+              },
                 "e102ui": {
                     "bool": "true",
                     "eggNum": 102,

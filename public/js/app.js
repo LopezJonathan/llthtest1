@@ -145,6 +145,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 });
 
+//Check if user has verified email
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user.emailVerified === true) {
 		// User is signed in.

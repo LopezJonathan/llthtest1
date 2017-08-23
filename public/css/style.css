@@ -422,3 +422,35 @@ body,
         margin-right: 2px;
     }
 }
+
+/*Progress Bar EggSVG*/
+
+	#svgBackgroundegg, #Layer_1, #Layer_2{
+		width: 200px;
+		height: 300px;
+		position: absolute;
+	}
+	
+	svg text{
+		font-weight: bold;
+	}
+	
+	text:nth-child(1){
+		font-size: 46px;
+	}
+	
+	text:nth-child(2){
+		font-size: 46px;
+	}
+	
+	text:nth-child(3){
+		font-size: 46px;
+	}
+	
+	#eggProgressTxt{
+		color: black;
+		position: absolute;
+		text-align: center;
+		margin-top: 150px;
+		font-size: 70px;
+	}

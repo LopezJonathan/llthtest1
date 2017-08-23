@@ -1,166 +1,164 @@
 <!doctype html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-    <title>Test profile Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="js/mdl/material.min.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+<title>Test profile Page</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="js/mdl/material.min.css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 </head>
 
 <body>
 
-    <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <img class="mdl-layout-title titleImage" src="images/logo.png">
-                <span class="mdl-layout-title title"><a href="index.html" class="title-link">Love Lynwood Egg Treasure Hunt</a>: Profile</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <!-- <input id="name" type="string" placeholder="name">-->
-                </nav>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Lyndwood Egg Hunt</span>
-            <nav class="mdl-navigation">
-                <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="string" id="txtName">
-                        <label class="mdl-textfield__label" for="txtName">Name...</label>
-                    </div>
-                </form>
-
-                <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="email" id="txtEmail">
-                        <label class="mdl-textfield__label" for="txtEmail">Email...</label>
-                    </div>
-                </form>
-
-                <form action="#">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="password" id="txtPassword">
-                        <label class="mdl-textfield__label" for="txtPassword">Password...</label>
-                    </div>
-                </form>
-
-                <button id="btnLogin" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Log in</button>
-
-                <button id="btnSignUp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-secondary">Sign Up</button>
-
-                <button id="btnLogout" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action hide">Log Out</button>
-                <a class="mdl-navigation__link" href="index.html">home</a>
-                <a class="mdl-navigation__link" href="map.html">Map</a>
-                <a class="mdl-navigation__link" href="collection.html">Collection</a>
-                <a class="mdl-navigation__link" href="scan.html">Scan for Eggs</a>
-                <a class="mdl-navigation__link" href="profile.html">Profile</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <!-- Your content goes here -->
-                <h1 id="LoginMessage" class="">To use demo log in or create a new account. To create a new account click the menu button and type in your email and password the the following boxes and hit the sign up button.</h1>
-
-                <div class="userBackground">
-                    <div class="userImage">
-                        <img id="UserImage" src="images/DefaultProfileIcon.png">
-                        <h1 id="userNameTxt">user name here</h1>
-                    </div>
-                </div>
-
-                <section>
-                    <h1 class="profileH1">Egg Collection Progress</h1>
-                    <div class="flex">
-                        <img id="greyProgressEgg" src="images/progressEggPhotoshopGrey.png" />
-                        <img id="progressEgg" src="images/progressEggPhotoshop.png" />
-                        <h1 id="eggProgressTxt">0%</h1>
-                    </div>
-                </section>
-
-                <section>
-                    <h1 class="profileH1">Recent Eggs Collected</h1>
-                    <div id="recentEgg">
-                    </div>
-                </section>
-
-                <section>
-                    <h1 class="profileH1">Account Settings</h1>
-                    <div class="flex">
-                        <button id="btnAccount" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Account</button>
-                        <button id="btnSettings" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Settings</button>
-                    </div>
-                </section>
-
-                <script src="js/profile.js"></script>
-            </div>
-            <footer class="mdl-mega-footer">
-                <div class="mdl-mega-footer__middle-section">
-
-                    <div class="mdl-mega-footer__drop-down-section">
-                        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-                        <h1 class="mdl-mega-footer__heading">Features</h1>
-                        <ul class="mdl-mega-footer__link-list">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Updates</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer__drop-down-section">
-                        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-                        <h1 class="mdl-mega-footer__heading">Details</h1>
-                        <ul class="mdl-mega-footer__link-list">
-                            <li><a href="#">Specs</a></li>
-                            <li><a href="#">Tools</a></li>
-                            <li><a href="#">Resources</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer__drop-down-section">
-                        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-                        <h1 class="mdl-mega-footer__heading">Technology</h1>
-                        <ul class="mdl-mega-footer__link-list">
-                            <li><a href="#">How it works</a></li>
-                            <li><a href="#">Patterns</a></li>
-                            <li><a href="#">Usage</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Contracts</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer__drop-down-section">
-                        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-                        <h1 class="mdl-mega-footer__heading">FAQ</h1>
-                        <ul class="mdl-mega-footer__link-list">
-                            <li><a href="#">Questions</a></li>
-                            <li><a href="#">Answers</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="mdl-mega-footer__bottom-section">
-                    <div class="mdl-logo">Title</div>
-                    <ul class="mdl-mega-footer__link-list">
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Privacy & Terms</a></li>
-                    </ul>
-                </div>
-
-            </footer>
-        </main>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row"> 
+      <!-- Title --> 
+      <img class="mdl-layout-title titleImage" src="images/logo.png"> <span class="mdl-layout-title title"><a href="index.html" class="title-link">Love Lynnwood Egg Treasure Hunt</a>: Profile</span> 
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only"> 
+        <!-- <input id="name" type="string" placeholder="name">--> 
+      </nav>
     </div>
+  </header>
+  <div class="mdl-layout__drawer"> <span class="mdl-layout-title">Lynnwood Egg Hunt</span>
+    <nav class="mdl-navigation">
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="string" id="txtName">
+          <label class="mdl-textfield__label" for="txtName">Name...</label>
+        </div>
+      </form>
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="email" id="txtEmail">
+          <label class="mdl-textfield__label" for="txtEmail">Email...</label>
+        </div>
+      </form>
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="password" id="txtPassword">
+          <label class="mdl-textfield__label" for="txtPassword">Password...</label>
+        </div>
+      </form>
+      <button id="btnLogin" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Log in</button>
+      <button id="btnSignUp" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-secondary">Sign Up</button>
+      <button id="btnLogout" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action hide">Log Out</button>
+      <a class="mdl-navigation__link" href="index.html">home</a> <a class="mdl-navigation__link" href="map.html">Map</a> <a class="mdl-navigation__link" href="collection.html">Collection</a> <a class="mdl-navigation__link" href="scan.html">Scan for Eggs</a> <a class="mdl-navigation__link" href="profile.html">Profile</a> </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"> 
+      <!-- Your content goes here -->
+      <h1 id="LoginMessage" class="">To use demo log in or create a new account. To create a new account click the menu button and type in your email and password the the following boxes and hit the sign up button.</h1>
+      <div class="userBackground">
+        <div class="userImage"> <img id="UserImage" src="images/DefaultProfileIcon.png">
+          <h1 id="userNameTxt">user name here</h1>
+        </div>
+      </div>
+            
+      <section>
+        <div class="flex"> <img id="svgBackgroundegg" src="images/progressegg.svg">
+          <svg id="Layer_1" class="clip" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411.1 526">
+            <defs>
+              <style>
+				.cls-1{
+					fill: orange;
+					stroke:#86c8b9;
+					stroke-miterlimit:10;
+					stroke-width:4px;}
+				.cls-2,.cls-3,.cls-4{
+					isolation:isolate;}
+				.cls-3{
+					font-size:50.28px;}
+				.cls-3,.cls-4{
+					font-family:ArialMT, Arial;}
+				.cls-4{
+					font-size:221.09px;}
+				</style>
+            </defs>
+            <title>progressegg</title>
+            <path class="cls-1" d="M444,371.8C444,477.3,519.8,597,648.2,597c117.4,0,202.9-105.3,202.9-224.5C851.2,235.8,736.2,75,648.2,75,555.2,75,444,248.1,444,371.8Z" transform="translate(-442 -73)"/>
+            <g class="cls-2">
+              <text class="cls-3" transform="translate(146 78.4) scale(1.35 1)">Egg</text>
+              <text class="cls-3" transform="translate(84 136.7) scale(1.16 1)">Collection</text>
+              <text class="cls-3" transform="translate(65 193.1) scale(1.38 1)">Progress:</text>
+            </g>
+            <text class="cls-4 updatePrcnt" transform="translate(55.9 397.6) scale(0.75 1)"></text>
+          </svg>
+          <h2 id="eggProgressTxt">0%</h2>
+        </div>
+      </section>
+      <section>
+        <h1 class="profileH1">Recent Eggs Collected</h1>
+        <div id="recentEgg"> </div>
+      </section>
+      <section>
+        <h1 class="profileH1">Account Settings</h1>
+        <div class="flex">
+          <button id="btnAccount" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Account</button>
+          <button id="btnSettings" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn btn-action">Settings</button>
+        </div>
+      </section>
+      <script src="js/app.js"></script> 
+      <script src="js/profile.js"></script> 
+    </div>
+    <footer class="mdl-mega-footer">
+      <div class="mdl-mega-footer__middle-section">
+        <div class="mdl-mega-footer__drop-down-section">
+          <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer__heading">Features</h1>
+          <ul class="mdl-mega-footer__link-list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer__drop-down-section">
+          <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer__heading">Details</h1>
+          <ul class="mdl-mega-footer__link-list">
+            <li><a href="#">Specs</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer__drop-down-section">
+          <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer__heading">Technology</h1>
+          <ul class="mdl-mega-footer__link-list">
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">Patterns</a></li>
+            <li><a href="#">Usage</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contracts</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer__drop-down-section">
+          <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer__heading">FAQ</h1>
+          <ul class="mdl-mega-footer__link-list">
+            <li><a href="#">Questions</a></li>
+            <li><a href="#">Answers</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mdl-mega-footer__bottom-section">
+        <div class="mdl-logo">Title</div>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Privacy & Terms</a></li>
+        </ul>
+      </div>
+    </footer>
+  </main>
+</div>
 </body>
-
 </html>

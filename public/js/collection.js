@@ -22,38 +22,6 @@ const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 const LoginMessage = document.getElementById('LoginMessage')
 
-//Add Login Event
-btnLogin.addEventListener('click', e => {
-    //Get email and pass
-    const email = txtEmail.value;
-    const pass = txtPassword.value;
-    const auth = firebase.auth();
-    //Sign in
-    const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-});
-
-//Add signup event
-btnSignUp.addEventListener('click', e => {
-    //Get email and pass
-    //TODO: Check for real Emails
-
-    const name = txtName.value;
-    const email = txtEmail.value;
-    const pass = txtPassword.value;
-    const auth = firebase.auth();
-    //Sign in
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-
--
-});
-
-//
-btnLogout.addEventListener('click', e => {
-    firebase.auth().signOut();
-});
-
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -75,13 +43,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         const collection = document.getElementById('collection')
-
-        //const e1 = document.getElementById('e1')
         const dbUserRef = firebase.database().ref();
         const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
-
-        //const notCollected = 0;
-        //const collected = 0;
 
         dbEggRef.orderByChild('eggNum').on('child_added', function(snap) {
             if (snap.val().bool == "true") {
@@ -112,7 +75,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 //img.href = 'https://haakonj.github.io/Prototype-Firebase-App/egg' + snap.val().eggNum + '.html'
 
                 section.appendChild(img)
-                    //collected++;
             } else {
                 const section = document.createElement('section');
                 section.classList.add('eggItem');
@@ -131,12 +93,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 img.src = 'images/NewMysteryEgg.png';
 
                 section.appendChild(img);
-                //notCollected++;
-                //collected++;
             }
-            //const pecentCollect;
-            //const collectedegg = notCollected / collected;
-            // pecentCollect = Math.round(collectedegg * 100);
         });
 
     }

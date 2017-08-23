@@ -132,7 +132,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 });
 
-//egg collection function
+//recent egg function
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         const collection = document.getElementById('collection')

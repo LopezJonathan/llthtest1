@@ -136,6 +136,8 @@
      }
  });
 
+ const scannedEggs = document.getElementById('scannedEggs');
+
 
  firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser) {
@@ -158,7 +160,7 @@
                      var found = longitude + "," + latitude;
                      const map = document.getElementById('map');
                      const dbUserRef = firebase.database().ref();
-                     map.src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
+                     // map.src = 'https://www.arcgis.com/home/webmap/viewer.html?webmap=ee17122bc13e41e2977d75ef541647dc&extent=-122.3642,47.7973,' + found + '&level=18&marker=' + found;
 
                      eggs.orderByChild('latitude').startAt(latitude - 0.0001).endAt(latitude + 0.0001).on('child_added', function(snap) {
                          if (snap.val().longitude >= (longitude - 0.0001) && snap.val().longitude <= (longitude + 0.0001)) {
@@ -166,6 +168,33 @@
                              console.log(latitude, longitude)
                              const dbUserRef = firebase.database().ref();
                              dbUserRef.child('users').child(firebaseUser.uid).child('eui').child('e' + snap.val().egg + 'ui').set({ bool: "true", eggNum: snap.val().egg, timeStamp: new Date().toString() });
+
+                             const scanned = document.getElementById('scanned');
+                             const updateCard = document.getElementById('updateCard');
+
+                             scanned.innerText = 'Egg ' + snap.val().egg + ' has been scanned!';
+                             const br = document.createElement('br');
+                             scanned.appendChild(br);
+
+                             const img = document.createElement('img');
+                             img.classList.add('eggImage');
+                             img.setAttribute("style", "margin-top:10px;");
+                             img.title = 'egg' + snap.val().egg;
+
+                             ////until more images are added this is here so that if any eggs that are listed as greater or less than 101 to 103 have an image
+                             ////when new images are added all you will need to do is save an image with the number of the egg and a string value that is static and it will pick it up.
+                             //img.src = 'images/TestEgg' + snap.val().eggNum + '.png';
+                             if (snap.val().eggNum <= 100 || snap.val().egg >= 104) {
+                                 img.src = 'images/TestEgg102.png';
+                             } else {
+                                 img.src = 'images/TestEgg' + snap.val().egg + '.png';
+                             }
+                             ////similarly to the image if the name of a website contains the egg value then it should be able to be pulled up this way.
+                             //img.href = 'https://haakonj.github.io/Prototype-Firebase-App/egg' + snap.val().eggNum + '.html'
+
+                             scanned.appendChild(img);
+
+                             updateCard.classList.remove('hide');
                          }
                      });
 
@@ -183,7 +212,7 @@
                  }
 
                  function error() {
-                     document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
+                     //document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
                  }
 
                  navigator.geolocation.getCurrentPosition(success, error);

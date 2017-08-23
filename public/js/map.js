@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 src = "https://www.gstatic.com/firebasejs/4.3.0/firebase.js"
 
   // Initialize Firebase
@@ -11,17 +10,6 @@ var config = {  
       storageBucket: "test-project-4d8c5.appspot.com",
       messagingSenderId: "591336136232"
 }; 
-=======
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyBi8HNIbweZnYK0RE3oEt0gjj9zpnV9TJo",
-	authDomain: "llth-firebasetest.firebaseapp.com",
-	databaseURL: "https://llth-firebasetest.firebaseio.com",
-	projectId: "llth-firebasetest",
-	storageBucket: "llth-firebasetest.appspot.com",
-	messagingSenderId: "212300061606"
-};
->>>>>>> JonsBranch
 firebase.initializeApp(config);
 
 //Get elements
@@ -36,7 +24,6 @@ const map = document.getElementById('map');
 const btnFind = document.getElementById('btnFind');
 const LoginMessage = document.getElementById('LoginMessage');
 
-<<<<<<< HEAD
 //Add Login Event
 btnLogin.addEventListener('click', e => {
     //Get email and pass
@@ -133,8 +120,6 @@ btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
 
-=======
->>>>>>> JonsBranch
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -163,10 +148,6 @@ function errorCallback(error) {
     alert('ERROR(' + error.code + '): ' + error.message);
 };
 
-<<<<<<< HEAD
-=======
-//Button to find your current location.
->>>>>>> JonsBranch
 btnFind.addEventListener('click', e => {
         var output = document.getElementById("");
 
@@ -179,11 +160,7 @@ btnFind.addEventListener('click', e => {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var found = longitude + "," + latitude;
-<<<<<<< HEAD
             //document.getElementById('map').src = 'https://www.arcgis.com/home/webmap/viewer.html?webmap=ee17122bc13e41e2977d75ef541647dc&extent=-122.3642,47.7973,' + found + '&level=18&marker=' + found;
-=======
-            document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,' + found + '&level=18&marker=' + found;
->>>>>>> JonsBranch
 
             var radlat1 = Math.PI * latitude / 180;
             var radlat2 = Math.PI * (latitude + .0002) / 180;
@@ -194,7 +171,6 @@ btnFind.addEventListener('click', e => {
             dist = dist * 180 / Math.PI;
             dist = dist * 60 * 1.1515;
             distFinal = dist * 5280;
-<<<<<<< HEAD
 
             //console.log(" Geolocation:  " + found);
 
@@ -203,12 +179,6 @@ btnFind.addEventListener('click', e => {
 
         function error() {
             //document.getElementById('map').src = 'http://www.arcgis.com/apps/webappviewer/index.html?id=4abca8e4a6bd40119c2515c1a8ebe07c&extent=-13619801.2375%2C6075299.3948%2C-13608335.6833%2C6080783.7516%2C102100';
-=======
-        }
-
-        function error() {
-            document.getElementById('map').src = 'http://lynnwoodwa.maps.arcgis.com/apps/StoryMapBasic/index.html?appid=9da6d2bdffa144d99748e259e417176c&extent=-122.3463,47.8138,-122.3463,47.8138';
->>>>>>> JonsBranch
         }
 
         navigator.geolocation.getCurrentPosition(success, error);

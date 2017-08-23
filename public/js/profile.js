@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 src = "https://www.gstatic.com/firebasejs/4.3.0/firebase.js"
 
   // Initialize Firebase
@@ -7,19 +6,6 @@ var config = {   apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",   authDo
 firebase.initializeApp(config);
 
 
-=======
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyBi8HNIbweZnYK0RE3oEt0gjj9zpnV9TJo",
-	authDomain: "llth-firebasetest.firebaseapp.com",
-	databaseURL: "https://llth-firebasetest.firebaseio.com",
-	projectId: "llth-firebasetest",
-	storageBucket: "llth-firebasetest.appspot.com",
-	messagingSenderId: "212300061606"
-};
-firebase.initializeApp(config);
-
->>>>>>> JonsBranch
 //Get elements
 const txtName = document.getElementById('txtName');
 const txtEmail = document.getElementById('txtEmail');
@@ -29,7 +15,6 @@ const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 const LoginMessage = document.getElementById('LoginMessage')
 
-<<<<<<< HEAD
 //Add Login Event
 btnLogin.addEventListener('click', e => {
     //Get email and pass
@@ -129,24 +114,6 @@ btnSignUp.addEventListener('click', e => {
 btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
-=======
-//Progress Bar Variables
-var layer1 = document.getElementById('Layer_1');
-var totalEggs = 50;
-var collectedEggs = 0;
-var missingEggs = (totalEggs - collectedEggs);
-var percentage = (collectedEggs / totalEggs);
-var getSvgHeight = layer1.height();
-var calcClip = getSvgHeight - (percentage * getSvgHeight);
-var fromTop = calcClip;
-var rect = "rect("+fromTop+"px"+", 380px, 450px, 0px)";
-var wholePerc = (percentage * 100);
-
-
-//Database References
-const dbUserRef = firebase.database().ref();
-const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
->>>>>>> JonsBranch
 
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -169,7 +136,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         const recentEgg = document.getElementById('recentEgg')
-<<<<<<< HEAD
 
         //const e1 = document.getElementById('e1')
         const dbUserRef = firebase.database().ref();
@@ -178,11 +144,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         //const notCollected = 0;
         //const collected = 0;
 
-=======
-        const dbUserRef = firebase.database().ref();
-        const dbEggRef = dbUserRef.child('users').child(firebaseUser.uid).child('eui');
-
->>>>>>> JonsBranch
         var recentCount = 0;
         dbEggRef.orderByChild('timeStamp').limitToLast(5).on('child_added', function(snap) {
             if (snap.val().bool == "true") {
@@ -214,7 +175,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
                 section.appendChild(img);
                 recentCount++;
-<<<<<<< HEAD
                 // console.log(recentCount + snap.val().timeStamp);
                 //collected++;
             } //else {
@@ -284,26 +244,3 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 
 });
-=======
-                console.log(recentCount + snap.val().timeStamp);
-            }
-        });
-    }
-});
-
-//Updates Progress bar when an egg is collected
-firebase.auth().onAuthStateChanged(firebaseUser => {
-	if (firebaseUser){
-		
-		dbEggRef.orderByKey().on("child_added", function(snap){
-			if (snap.val().bool === "true"){
-				collectedEggs++;
-			}
-		});
-		
-		layer1.css("clip", rect);
-		$("#eggProgressTxt").last().text(wholePerc + "%");
-	}
-});
-
->>>>>>> JonsBranch

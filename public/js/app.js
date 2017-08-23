@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 src = "https://www.gstatic.com/firebasejs/4.3.0/firebase.js"
 
   // Initialize Firebase
@@ -7,39 +6,14 @@ var config = {   apiKey: "AIzaSyC42UIRETC_VVO7cXGqo9ru8TlfDi_-El8",   authDo
 firebase.initializeApp(config);
 
 
-=======
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyBi8HNIbweZnYK0RE3oEt0gjj9zpnV9TJo",
-	authDomain: "llth-firebasetest.firebaseapp.com",
-	databaseURL: "https://llth-firebasetest.firebaseio.com",
-	projectId: "llth-firebasetest",
-	storageBucket: "llth-firebasetest.appspot.com",
-	messagingSenderId: "212300061606"
-};
-firebase.initializeApp(config);
-
->>>>>>> JonsBranch
 //Get elements
 const txtName = document.getElementById('txtName');
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
-<<<<<<< HEAD
 const txtLogin = document.getElementById('btnLogin');
 const txtSignUp = document.getElementById('btnSignUp');
 const txtLogout = document.getElementById('btnLogout');
 const LoginMessage = document.getElementById('LoginMessage')
-=======
-const txtUserName = document.getElementById('txtUserName');
-const frmName = document.getElementById('frmName');
-const frmEmail = document.getElementById('frmEmail');
-const frmPassword = document.getElementById('frmPassword');
-const frmUserName = document.getElementById('frmUserName');
-const txtLogin = document.getElementById('btnLogin');
-const txtSignUp = document.getElementById('btnSignUp');
-const txtLogout = document.getElementById('btnLogout');
-const LoginMessage = document.getElementById('LoginMessage');
->>>>>>> JonsBranch
 
 //Add Login Event
 btnLogin.addEventListener('click', e => {
@@ -55,15 +29,11 @@ btnLogin.addEventListener('click', e => {
 //Add signup event
 btnSignUp.addEventListener('click', e => {
     //Get email and pass
-<<<<<<< HEAD
     //TODO: Check for real Emails
-=======
->>>>>>> JonsBranch
     const name = txtName.value;
     const email = txtEmail.value;
     const pass = txtPassword.value;
     const auth = firebase.auth();
-<<<<<<< HEAD
     //Sign in
     const promise = auth.createUserWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
@@ -71,17 +41,6 @@ btnSignUp.addEventListener('click', e => {
     const dbUserRef = firebase.database().ref();
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
-=======
-	const dbUserRef = firebase.database().ref();
-	const user = firebase.auth().currentUser;
-	
-	//Create User and Sign in
-    const promise = auth.createUserWithEmailAndPassword(email, pass);	
-    promise.catch(e => console.log(e.message));
-
-    //Add User data to database
-	auth.onAuthStateChanged(firebaseUser => {
->>>>>>> JonsBranch
         if (firebaseUser) {
             dbUserRef.child('users').child(firebaseUser.uid).set({
                 UserName: name,
@@ -142,26 +101,15 @@ btnSignUp.addEventListener('click', e => {
                     e102ui: { bool: false, eggNum: 102 }
                 }
             });
-<<<<<<< HEAD
         }
     });
 });
 
-=======
-			console.log('User added to database');
-        }
-    });	
-});
->>>>>>> JonsBranch
 //
 btnLogout.addEventListener('click', e => {
     firebase.auth().signOut();
 });
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> JonsBranch
 //Add a realtime Listner
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -170,59 +118,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.classList.remove('hide');
         btnLogin.classList.add('hide');
         btnSignUp.classList.add('hide');
-<<<<<<< HEAD
-=======
-		frmName.classList.add('hide');
-		frmEmail.classList.add('hide');
-		frmPassword.classList.add('hide');
-		frmUserName.classList.remove('hide');
-		
->>>>>>> JonsBranch
     } else {
         console.log('not Logged in');
         LoginMessage.classList.remove('hide');
         btnLogout.classList.add('hide');
         btnLogin.classList.remove('hide');
         btnSignUp.classList.remove('hide');
-<<<<<<< HEAD
     }
 });
-=======
-		frmName.classList.remove('hide');
-		frmEmail.classList.remove('hide');
-		frmPassword.classList.remove('hide');
-		frmUserName.classList.add('hide');
-    }
-});
-
-firebase.auth().onAuthStateChanged(function(user) {
-	if (user.emailVerified === true) {
-		// User is signed in.
-		firebase.auth().signInWithEmailAndPassword(email, pass);
-		console.log('Email has been verified');
-		//promise.catch(e => console.log(e.message));
-	}
-	
-	else{
-		firebase.auth().signOut();
-		console.log('Email is not verified. User not signed in.');
-		console.log('Please verify email then try logging in.');
-		user.sendEmailVerification();
-		console.log('Verification email was sent.');
-	}
-});
-
-//Update HTML #userNameTXT with Current user's name.
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        const dbUserRef = firebase.database().ref();
-        const userNameTxt = document.getElementById('userNameTxt');
-        const dbUserName = dbUserRef.child('users').child(firebaseUser.uid).child('UserName');
-
-        dbUserName.on('value', snap => {
-
-            userNameTxt.innerText = snap.val();
-        });
-    }
-});
->>>>>>> JonsBranch
